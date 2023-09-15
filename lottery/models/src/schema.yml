@@ -1,0 +1,55 @@
+
+version: 2
+
+models:
+  - name: src_aid_to_education_NY
+    description: Cleaned view of the raw data brought by airbyte
+    columns:
+      - name: start_fiscal_year
+        description: The starting fiscal year
+        tests : 
+          - not_null
+
+      - name : end_fiscal_year
+        description : The ending fiscal year
+        test : 
+          - not_null
+
+      - name : school_district
+        description : The school district
+        test : 
+          - not_null
+
+      - name : aid_amount
+        description : The amount of aid received by a given school district
+        test : 
+          - not_null
+
+      - name : county
+        description : The school district's county
+        test : 
+          - not_null
+    
+  - name : dim_aid_per_county_NY
+    description : A table where you can see the total amount of aid a county perceived for a given fiscal year
+    columns:
+      - name : county
+        description : The name of the county
+
+      - name: start_fiscal_year
+        description: The starting fiscal year
+
+      - name : end_fiscal_year
+        description : The ending fiscal year
+
+      - name : total_aid
+        description : the total amount of aid a county perceived
+  
+  - name : dim_avg_temp_feb
+    description : A table where you can the average temperature of an hour of a day in February
+    columns : 
+      - name : time_of_day
+        description : The time of the day where the avg temperature is found
+
+      - name : avg_temp
+        description : The average temperature for this time of day

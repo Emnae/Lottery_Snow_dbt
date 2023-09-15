@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: lot_data
+    database : gvasandbox
+    schema: test_airbyte
+    tables:
+      - name: lottery_aid_education
+        identifier: raw_lottery_aid_to_education_beginning_2022
+
+  - name : ods_meteo
+    database : gvasandbox
+    schema : ods
+    tables : 
+      - name : r_meteo
+        identifier: meteo
